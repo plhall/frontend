@@ -3,6 +3,7 @@ import {Box, useColorModeValue, useMultiStyleConfig, usePrevious} from '@chakra-
 import {observer} from 'mobx-react-lite';
 import useEphemeralValue from 'src/lib/hooks/use-ephemeral-value';
 import useStore from 'src/lib/state/context';
+import Text from '@chakra-ui/react';
 
 type FloatingButtonProps = {
 	onOpen: () => void;
@@ -62,7 +63,9 @@ const FloatingButton = observer((props: FloatingButtonProps) => {
 			// The container is invisible, so allow click-throughs
 			pointerEvents='none'
 		>
+			
 			<Box
+				
 				pointerEvents='all'
 				p={4}
 				title='Open basket'
@@ -80,7 +83,8 @@ const FloatingButton = observer((props: FloatingButtonProps) => {
 				justifyContent='center'
 				roundedTop='md'
 				onClick={props.onOpen}
-			>
+			>	
+				
 				<Box
 					rounded='full'
 					bgColor={getBarColor(wasBasketSizeChanged)}
@@ -92,7 +96,12 @@ const FloatingButton = observer((props: FloatingButtonProps) => {
 					h={2}
 					_groupHover={{h: 4}}/>
 			</Box>
+			<div style={{ position: 'absolute', top: '10%', transform: 'translateY(-50%)', marginRight: 0.7 + 'em' }}>
+    <h3>Open Baskets</h3>
+  </div>
+			
 		</Box>
+		
 	);
 });
 
